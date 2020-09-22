@@ -4,11 +4,6 @@
   gather_facts: no
   become: yes
 
-  pre_tasks:
-    - name: get time stamp
-      shell: date +%Y%m%d%H%M%S
-      register: start_timestamp
-
   tasks:
     - name: display extra vars
       debug:
