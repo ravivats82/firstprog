@@ -2,8 +2,7 @@
 - name: Test code to display variables
   hosts: localhost
   gather_facts: no
-  become: true
-  become_user: testuser
+  become: false
 
   tasks:
     - name: ping cluster
