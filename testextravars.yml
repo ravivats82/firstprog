@@ -1,6 +1,6 @@
 ---
 - name: Test code to display variables
-  hosts: localhost
+  hosts: {{ myinv }}
   gather_facts: no
   become: false
 
