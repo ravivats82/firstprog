@@ -10,5 +10,5 @@
         msg: "{{ cluster }} - {{ svm }} - {{ sharetype }}"
     - name: ping cluster
       command:
-        ping -c1 {{ cluster }}
+        ping -c1 "{{ cluster }}"
       register: cluster_ping
