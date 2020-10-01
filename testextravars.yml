@@ -12,3 +12,4 @@
       command:
         ping -c1 "{{ cluster }}"
       register: cluster_ping
+      ignore_error: yes
