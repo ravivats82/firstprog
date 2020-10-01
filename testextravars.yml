@@ -7,6 +7,6 @@
   tasks:
     - name: ping cluster
       command:
-        ping -c1 "{{ cluster }}"
+        /usr/sbin/ping -c1 "{{ cluster }}"
       register: cluster_ping
       ignore_errors: yes
