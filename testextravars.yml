@@ -2,9 +2,10 @@
 - name: Test code to display variables
   hosts: localhost
   gather_facts: no
-  become: true
+  become: false
 
   tasks:
     - name: ping cluster
-      local_action: command ping -c 1 {{ cluster }}
+      command:
+        ping -c 1 {{ cluster }}
       register: cluster_ping
