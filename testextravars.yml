@@ -5,7 +5,8 @@
   become: yes
 
   tasks:
-    - command:
+    - name: ping cluster
+      command:
         ping -c1 "{{ cluster }}"
       register: cluster_ping
-      ignore_error: yes
+      ignore_errors: yes
