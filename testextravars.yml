@@ -7,5 +7,18 @@
   tasks:
     - name: ping cluster
       command:
+        which ping
+      register: cluster_ping
+    - name: ping cluster
+      command:
+        whoami
+      register: cluster_ping
+    - name: ping cluster
+      command:
+        hostname
+      register: cluster_ping
+    - name: ping cluster
+      command:
         /bin/ping -c 1 {{ cluster }}
       register: cluster_ping
+     
