@@ -7,5 +7,5 @@
   tasks:
     - name: ping cluster
       command:
-        ping -c 1 {{ cluster }}
+        /bin/ping -c 1 {{ cluster }}
       register: cluster_ping
