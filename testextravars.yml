@@ -1,6 +1,6 @@
 ---
 - name: Test code to display variables
-  hosts: {{ myinv }}
+  hosts: localhost
   gather_facts: no
   become: false
 
@@ -19,6 +19,5 @@
       register: cluster_ping
     - name: ping cluster
       command:
-        /bin/ping -c 1 {{ cluster }}
+        /usr/bin/ping -c 1 {{ cluster }}
       register: cluster_ping
-     
