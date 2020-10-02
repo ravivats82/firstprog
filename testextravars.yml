@@ -18,7 +18,6 @@
       - name: convert to 3 digit
         set_fact:
           shareno: "{{ \"%03d\" | format(currentshareno | int) }}"
-        when: (currentshareno is int) == True
       - name: display variable
         debug:
           msg: "{{ shareno }}"
