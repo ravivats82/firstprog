@@ -23,7 +23,7 @@
           msg: "{{ shareno }}"
       - name: ping cluster
         command: 
-          cat /tmp/test/test.txt
+          cat /tmp/test.txt
         register: new_var
       - name: trim new_var
         shell: >
@@ -33,18 +33,6 @@
         debug:
           msg: "{{ fetchedshare.stdout }}"
         ignore_errors: true
-      - name: fail the task if server is not pinging
-        fail:
-          msg: "please check google.com"
-        when: (new_var is success) == false
-      - name: ping google
-        command: 
-          /usr/bin/ping -c 1 google.com
-        register: new_var1
-      - name: display new_var
-        debug:
-          msg: "google.com is pinging"
-        when: (new_var1 is success) == True
       rescue:
         - name: display message
           debug:
