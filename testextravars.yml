@@ -23,11 +23,11 @@
           msg: "{{ shareno }}"
       - name: ping cluster
         command: 
-          ls -ltr /dev
+          cat /tmp/test/test.txt
         register: new_var
       - name: trim new_var
         shell: >
-          echo "{{ new_var.stdout }}" | tail -1 | awk '{print $2}'
+          echo "{{ new_var.stdout }}" | awk '{print $2} | sort'
         register: fetchedshare
       - name: display variable
         debug:
