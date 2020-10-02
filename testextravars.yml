@@ -12,12 +12,12 @@
       - name: display variable
         debug:
           msg: "{{ searchname }}"
-      - name: increment by 1
+      - name: current share number increment by 1
         set_fact:
-          sharename: "RS_{{ cluster[0:3]|upper }}_{{ sharetype|replace(' ','') }}{{ "%02d" | format(cluster[-3:0] | int + 1) }}"
+          currentshareno: "{{ "%02d" | format({{ cluster[-3:0] | int + 1 }}) }}"
       - name: display variable
         debug:
-          msg: "{{ sharename }}"
+          msg: "{{ currentshareno }}"
       - name: ping cluster
         command: 
           /usr/bin/ping -c 1 tower1
