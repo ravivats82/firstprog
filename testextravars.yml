@@ -23,7 +23,7 @@
           msg: "{{ shareno }}"
       - name: ping cluster
         command: 
-          ls -ltr /
+          ls -ltr /dev
         register: new_var
       - name: trim new_var
         shell: >
@@ -31,7 +31,7 @@
         register: fetchedshare
       - name: display variable
         debug:
-          msg: "{{ fetchedshare }}"
+          msg: "{{ fetchedshare.stdout }}"
         ignore_errors: true
       - name: fail the task if server is not pinging
         fail:
