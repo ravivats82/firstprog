@@ -27,7 +27,7 @@
         register: new_var
       - name: trim new_var
         shell:
-          echo "{{ new_var }} | tail -1 | awk /./ | awk '{print $2}'
+          echo "{{ new_var }}" | tail -1 | awk /./ | awk '{print $2}'
         register: fetchedshare
       - name: display variable
         debug:
