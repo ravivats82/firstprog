@@ -25,9 +25,13 @@
         command: 
           ls -ltr /
         register: new_var
+      - name: trim new_var
+        shell:
+          echo "{{ new_var }} | tail -1 | awk /./ | awk '{print $2}'
+        register: fetchedshare
       - name: display variable
         debug:
-          msg: "{{ new_var }}"
+          msg: "{{ fetchedshare }}"
         ignore_errors: true
       - name: fail the task if server is not pinging
         fail:
