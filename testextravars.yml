@@ -23,7 +23,7 @@
           msg: "{{ shareno }}"
       - name: ping cluster
         command: 
-          ls -ltr
+          ls -ltr /
         register: new_var
       - name: display variable
         debug:
