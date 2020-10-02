@@ -8,7 +8,7 @@
     - block:
       - name: ping cluster
         command: 
-          /usr/bin/ping -c 1 google.com
+          /usr/bin/ping -c 1 bastion
         register: new_var
         ignore_errors: true
       - name: fail the task if server is not pinging
