@@ -14,7 +14,7 @@
           msg: "{{ searchname }}"
       - name: current share number increment by 1
         set_fact:
-          currentshareno: "{{ cluster[-3:0] | int + 1 }}"
+          currentshareno: "{{ cluster[-3:] | int + 1 }}"
       - name: convert to 3 digit
         set_fact:
           shareno: "{{ \"%03d\" | format(currentshareno | int) }}"
