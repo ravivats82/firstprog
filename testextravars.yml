@@ -21,6 +21,7 @@
       command: 
         /usr/bin/ping -c 1 anyserver
       register: new_var
+      ignore_errors: true
     - name: display new_var
       debug:
         msg: "please check anyserver"
