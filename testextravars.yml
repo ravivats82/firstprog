@@ -8,7 +8,7 @@
     - block:
       - name: trimming first 3 characters
         set_fact:
-          searchname: "RS_{{ cluster[0:2] }}_{{ sharetype|replace(' ','') }}"
+          searchname: "RS_{{ cluster[0:3]|upper }}_{{ sharetype|replace(' ','') }}"
       - name: display variable
         debug:
           msg: "{{ searchname }}"
