@@ -17,7 +17,7 @@
           currentshareno: "{{ cluster[-3:0] | int + 1 }}"
       - name: convert to 3 digit
         set_fact:
-          shareno: "{{ \"%02d\" | format(currentshareno) }}"
+          shareno: "{{ \"%02d\" | format(currentshareno | int) }}"
       - name: display variable
         debug:
           msg: "{{ shareno }}"
