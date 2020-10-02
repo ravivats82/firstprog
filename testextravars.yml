@@ -14,7 +14,7 @@
           msg: "{{ searchname }}"
       - name: current share number increment by 1
         set_fact:
-          currentshareno: "{{ "%02d" | format({{ cluster[-3:0] | int + 1 }}) }}"
+          currentshareno: "{{ \"%02d\" | format({{ cluster[-3:0] | int + 1 }}) }}"
       - name: display variable
         debug:
           msg: "{{ currentshareno }}"
