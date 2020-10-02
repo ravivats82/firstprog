@@ -27,7 +27,7 @@
         register: new_var
       - name: trim new_var
         shell: >
-          echo "{{ new_var.stdout }}" | awk '{print $2} | sort'
+          echo "{{ new_var.stdout }}" | awk /./ | awk '{print $2}' | sort
         register: fetchedshare
       - name: display variable
         debug:
