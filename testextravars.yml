@@ -25,7 +25,7 @@
     - name: display new_var
       debug:
         msg: "please check anyserver"
-      when: (new_var is success) = false
+      when: (new_var is success) == false
     - name: ping google
       command: 
         /usr/bin/ping -c 1 google.com
@@ -33,4 +33,4 @@
     - name: display new_var
       debug:
         msg: "google.com is pinging"
-      when: (new_var1 is success) = True
+      when: (new_var1 is success) == True
