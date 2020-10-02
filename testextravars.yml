@@ -13,8 +13,8 @@
         debug:
           msg: "{{ searchname }}"
       - name: increment by 1
-          set_fact:
-            sharename: "RS_{{ cluster[0:3]|upper }}_{{ sharetype|replace(' ','') }}{{ cluster[-3:0] | int + 1 }}"
+        set_fact:
+          sharename: "RS_{{ cluster[0:3]|upper }}_{{ sharetype|replace(' ','') }}{{ cluster[-3:0] | int + 1 }}"
       - name: display variable
         debug:
           msg: "{{ sharename }}"
