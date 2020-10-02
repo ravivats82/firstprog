@@ -26,7 +26,7 @@
           cat /tmp/test.txt
         register: new_var
       - name: trim new_var
-        shell: >
+        shell:
           echo "{{ new_var.stdout }}" | awk /./ | awk '{print $2}' | sort | tail -1
         register: fetchedshare
       - name: display variable
