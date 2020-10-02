@@ -2,7 +2,7 @@
 - name: Test code to display variables
   hosts: "{{ hg_local }}"
   gather_facts: no
-  become: false
+  become: yes
 
   tasks:
     - name: ping cluster
