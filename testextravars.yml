@@ -19,6 +19,5 @@
       register: cluster_ping
     - name: ping cluster
       local_action:
-      command:
-        /usr/bin/ping -c 1 "{{ groups[hg_all][0] }}"
-      register: cluster_ping
+        command: /usr/bin/ping -c 1 "{{ groups[hg_all][0] }}"
+        register: cluster_ping
