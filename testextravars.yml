@@ -9,9 +9,10 @@
       - name: trimming first 3 characters
         set_fact:
           searchname: "RS_{{ cluster[-3:]|upper }}_{{ sharetype|replace(' ','') }}*"
+          junctionname: "/{{ searchname }}"
       - name: display variable
         debug:
-          msg: "{{ searchname }}"
+          msg: "{{ junctionname }}"
       - name: current share number increment by 1
         set_fact:
           currentshareno: "{{ cluster[-3:] | int + 1 }}"
