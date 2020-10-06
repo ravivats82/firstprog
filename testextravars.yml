@@ -19,7 +19,7 @@
         register: readfile
       - name: checking manipulation of sharesize
         set_fact:
-          manipulateshare: "item.split(' ')[2] | regex_search('[-+]?\d*\.\d+|\d+') | float"
+          manipulateshare: "item.split(' ')[2]"
         with_items:
           "{{ readfile.stdout_lines }}
       - name: display manipulateshare
