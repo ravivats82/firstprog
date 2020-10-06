@@ -13,6 +13,15 @@
       - name: display variable
         debug:
           msg: "{{ junctionname }}"
+      - name: Setting variable
+        set_fact:
+          sharesize: "353.0TB"
+      - name: checking manipulation of sharesize
+        set_fact:
+          manipulateshare: "{{ sharesize }} | regex_search('[-+]?\d*\.\d+|\d+') | float
+      - name: display manipulateshare
+        debug:
+          msg: "{{ manipulateshare }}"
       - name: current share number increment by 1
         set_fact:
           currentshareno: "{{ cluster[-3:] | int + 1 }}"
