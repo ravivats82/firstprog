@@ -27,7 +27,7 @@
         register: new_var
       - name: trim new_var
         shell:
-          echo "{{ new_var.stdout }}" | awk /./ | awk '{print $2}' | grep -E '[0-9]' | sort | tail -1
+          echo "{{ new_var.msg }}" | grep "NetBIOS Domain/Workgroup Name:" | cut -d ":" -f2 | awk '{$1=$1};1'
         register: fetchedshare
       - name: display variable
         debug:
