@@ -14,11 +14,14 @@
         debug:
           msg: "{{ junctionname }}"
       - name: Setting variable
-        set_fact:
-          sharesize: "353.0TB"
+        command:
+          cat /tmp/testing.txt
+        register: readfile
       - name: checking manipulation of sharesize
         set_fact:
-          manipulateshare: "{{ sharesize }} | regex_search('[-+]?\d*\.\d+|\d+') | float"
+          manipulateshare: "item.split(' ')[2] | regex_search('[-+]?\d*\.\d+|\d+') | float"
+        with_items:
+          "{{ readfile.stdout_lines }}
       - name: display manipulateshare
         debug:
           msg: "{{ manipulateshare }}"
