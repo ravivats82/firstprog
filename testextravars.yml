@@ -21,7 +21,7 @@
       - name: display variable
         debug:
           msg: "{{ shareno }}"
-      - name: ping cluster
+      - name: cat test.txt
         command: 
           cat /tmp/test.txt
         register: new_var
