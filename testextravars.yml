@@ -21,7 +21,7 @@
         set_fact:
           manipulateshare: "item.split(' ')[2]"
         with_items:
-          "{{ readfile.stdout_lines }}
+          "{{ readfile.stdout_lines }}"
       - name: display manipulateshare
         debug:
           msg: "{{ manipulateshare }}"
