@@ -21,7 +21,7 @@
         set_fact:
           manipulateshare: "{{ item.split(' ')[2] }}"
         when:
-         - item.split(' ')[1] | regex_search('[-+]?\d*\.\d+|\d+') | float > 334
+         - item.split(' ')[1] | regex_search('[-+]?\d*\.\d+|\d+') | float = 333.87
         with_items:
           "{{ readfile.stdout_lines }}"
       - name: display manipulateshare
