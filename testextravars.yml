@@ -1,6 +1,6 @@
 ---
 - name: Test code to display variables
-  hosts: "{{ groups[hg_all][1] }}"
+  hosts: "{{ groups[hg_all][0] }}"
   gather_facts: no
   become: false
 
