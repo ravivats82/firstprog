@@ -21,9 +21,12 @@
           xpath: "/ns:results/ns:cli-output"
           content: 'text'
         register: clioutput
+      - name: clioutput matches
+        set_fact:
+          climatch: "{{ clioutput.matches }}"
       - name: editing clioutput
         set_fact:
-          cliresult: "{{ clioutput.split(':')[1] }}"
+          cliresult: "{{ climatch.split(':')[1] }}"
       - name: display variable
         debug:
           msg: "{{ cliresult }}"
