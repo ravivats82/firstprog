@@ -23,7 +23,7 @@
         register: clioutput
       - name: display variable
         debug:
-          msg: "{{ clioutput.matches }}"
+          msg: "{{ clioutput.matches.{http://www.netapp.com/filer/admin}cli-output }}"
       rescue:
         - name: display message
           debug:
