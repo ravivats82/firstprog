@@ -23,7 +23,7 @@
         register: clioutput
       - name: display variable
         debug:
-          msg: "{{ clioutput.matches.value }}"
+          msg: "{{ clioutput.matches }}"
       rescue:
         - name: display message
           debug:
