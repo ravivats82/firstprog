@@ -18,7 +18,7 @@
           xmlstring: "{{ new_var.stdout }}"
           namespaces:
             ns: http://www.netapp.com/filer/admin
-          xpath: /results/cli-output
+          xpath: "/ns:results/ns:cli-output"
           content: 'text'
         register: clioutput
       rescue:
