@@ -23,7 +23,7 @@
         register: clioutput
       - name: editing clioutput
         set_fact:
-          cliresult: "{{ clioutput.matches.split(':')[1] }}"
+          cliresult: "{{ clioutput.split(':')[1] }}"
       - name: display variable
         debug:
           msg: "{{ cliresult }}"
