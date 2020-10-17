@@ -28,7 +28,7 @@
         set_fact:
           cliresult: "{{ item.split(':')[1] }}"
         with_items:
-          - "{{ climatch.list }}"
+          - "{{ climatch }}"
       - name: display variable
         debug:
           msg: "{{ cliresult }}"
