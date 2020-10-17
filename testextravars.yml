@@ -6,48 +6,13 @@
 
   tasks:
     - block:
-      - name: trimming first 3 characters
-        set_fact:
-          searchname: "RS_{{ cluster[-3:]|upper }}_{{ sharetype|replace(' ','') }}*"
-          junctionname: "/RS_{{ cluster[-3:]|upper }}_{{ sharetype|replace(' ','') }}"
-      - name: display variable
-        debug:
-          msg: "{{ junctionname }}"
-      - name: Setting variable
-        command:
-          cat /tmp/testing.txt
-        register: readfile
-      - name: checking manipulation of sharesize
-        set_fact:
-          manipulateshare: "{{ item.split(' ')[2] }}"
-        when:
-         - item.split(' ')[1] | regex_search('[-+]?\d*\.\d+|\d+') | float == 333.87
-        with_items:
-          "{{ readfile.stdout_lines }}"
-      - name: display manipulateshare
-        debug:
-          msg: "{{ manipulateshare }}"
-      - name: current share number increment by 1
-        set_fact:
-          currentshareno: "{{ cluster[-3:] | int + 1 }}"
-      - name: convert to 3 digit
-        set_fact:
-          shareno: "{{ \"%03d\" | format(currentshareno | int) }}"
-      - name: display variable
-        debug:
-          msg: "{{ shareno }}"
       - name: cat test.txt
         command: 
           cat /tmp/test.txt
         register: new_var
-      - name: trim new_var
-        shell:
-          echo "{{ new_var.stdout }}" | grep "NetBIOS Domain/Workgroup Name:" | cut -d ":" -f2 | awk '{$1=$1};1'
-        register: fetchedshare
       - name: display variable
         debug:
-          msg: "{{ fetchedshare.stdout }}"
-        ignore_errors: true
+          msg: "{{ new_var.stdout }}"
       rescue:
         - name: display message
           debug:
