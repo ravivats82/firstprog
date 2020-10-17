@@ -21,6 +21,9 @@
           xpath: "/ns:results/ns:cli-output"
           content: 'text'
         register: clioutput
+      - name: display variable
+        debug:
+          msg: "{{ clioutput }}"
       rescue:
         - name: display message
           debug:
