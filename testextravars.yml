@@ -26,7 +26,7 @@
           climatch: "{{ clioutput.matches }}"
       - name: editing clioutput
         set_fact:
-          cliresult: "{{ item.split(':')[1] }}"
+          cliresult: "{{ item.{http://www.netapp.com/filer/admin}cli-output }}"
         with_items:
           - "{{ climatch }}"
       - name: display variable
