@@ -6,32 +6,9 @@
 
   tasks:
     - block:
-      - name: cat test.txt
-        command: 
-          cat /tmp/test.txt
-        register: new_var
-      - name: display variable
+      - name: display extra variables
         debug:
-          msg: "{{ new_var.stdout }}"
-      - name: parsing xml output
-        xml:
-          xmlstring: "{{ new_var.stdout }}"
-          namespaces:
-            ns: http://www.netapp.com/filer/admin
-          xpath: "/ns:results/ns:cli-output"
-          content: 'text'
-        register: clioutput
-      - name: clioutput matches
-        set_fact:
-          climatch: "{{ clioutput.matches }}"
-      - name: editing clioutput
-        set_fact:
-          cliresult: "{{ item.{http://www.netapp.com/filer/admin}cli-output }}"
-        with_items:
-          - "{{ climatch }}"
-      - name: display variable
-        debug:
-          msg: "{{ cliresult }}"
+          msg: "{{ cluster }} -  {{ svm }} - {{ sharetype }}"
       rescue:
         - name: display message
           debug:
