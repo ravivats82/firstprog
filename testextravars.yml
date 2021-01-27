@@ -8,7 +8,7 @@
     - block:
       - name: display extra variables
         debug:
-          msg: "{{ cluster }} -  {{ svm }} - {{ sharetype }} - {{ sharesize }}"
+          msg: "{{ cluster }} -  {{ svm }} - {{ sharetype }} - {{ tvsize }} - {{ vtype }}"
       rescue:
         - name: display message
           debug:
